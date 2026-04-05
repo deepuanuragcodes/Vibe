@@ -851,9 +851,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         // Helper function to push to data layer
         function pushToDataLayer(eventData) {
-            window.dataLayer.push(eventData);
-            console.log('Data Layer Event:', eventData);
-        }
+          // 🧹 Clear previous ecommerce data (CRITICAL FIX)
+             window.dataLayer.push({ ecommerce: null });
+          // 🚀 Push fresh event
+             window.dataLayer.push(eventData);
+
+          console.log('Clean Data Layer Event:', eventData);
+         }
 
         // Products Database
         const products = [
